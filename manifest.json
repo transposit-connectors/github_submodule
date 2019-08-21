@@ -96,6 +96,10 @@
         "name": "parentBranch",
         "description": "Branch of the parent repo to update",
         "type": "STRING"
+      }, {
+        "name": "submoduleOwner",
+        "description": "Owner of the submodule repo",
+        "type": "STRING"
       }]
     }
   }
