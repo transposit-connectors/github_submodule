@@ -104,6 +104,10 @@
         "name": "submoduleRepo",
         "description": "Submodule repo name",
         "type": "STRING"
+      }, {
+        "name": "submoduleBranch",
+        "description": "Branch of the submodule repo to update the parent to",
+        "type": "STRING"
       }]
     }
   }
