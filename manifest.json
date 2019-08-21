@@ -108,6 +108,10 @@
         "name": "submoduleBranch",
         "description": "Branch of the submodule repo to update the parent to",
         "type": "STRING"
+      }, {
+        "name": "submodulePath",
+        "description": "Path to the git submodule in the parent",
+        "type": "STRING"
       }]
     }
   }
