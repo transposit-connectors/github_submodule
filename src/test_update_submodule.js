@@ -35,7 +35,7 @@
     owner: owner,
     repo: repo,
     $body: {
-      "message": "test",
+      "message": `Auto-update submodule ${submoduleOwner/submoduleRepo} to ${submoduleSha}`,
       "tree": treeSha.sha,
       "parents": [parentSha]
     }
