@@ -100,6 +100,10 @@
         "name": "submoduleOwner",
         "description": "Owner of the submodule repo",
         "type": "STRING"
+      }, {
+        "name": "submoduleRepo",
+        "description": "Submodule repo name",
+        "type": "STRING"
       }]
     }
   }
