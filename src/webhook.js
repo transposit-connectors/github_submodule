@@ -11,7 +11,7 @@
   if (parsed_body.ref === `refs/heads/${env.get('submoduleBranch')}`) {
     console.log(api.run('this.test_update_submodule'));
   } else {
-    console.log(`Skipped push to ${parsed_body.ref}`);
+    console.log(`Skipped push to ${parsed_body.ref}. Configured for ${env.get('submoduleBranch')}.`);
   }
 
   return { status_code: 200 };
