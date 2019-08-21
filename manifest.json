@@ -88,6 +88,10 @@
         "name": "parentOwner",
         "description": "Owner of the parent repo",
         "type": "STRING"
+      }, {
+        "name": "parentRepo",
+        "description": "Parent repo name",
+        "type": "STRING"
       }]
     }
   }
