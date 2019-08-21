@@ -48,6 +48,11 @@
         "function": {
           "js": "test_update_submodule.js"
         }
+      }, {
+        "id": "get_branch_for_repo",
+        "tql": {
+          "tql": "SELECT * FROM github.get_git_ref\n  WHERE owner='transposit'\n  AND repo='www'\n  AND ref='heads/master'\n"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
