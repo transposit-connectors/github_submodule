@@ -83,7 +83,12 @@
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
-      "userSettingsDisplay": "GENERATED"
+      "userSettingsDisplay": "GENERATED",
+      "appSettings": [{
+        "name": "parentOwner",
+        "description": "Owner of the parent repo",
+        "type": "STRING"
+      }]
     }
   }
 }
