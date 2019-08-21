@@ -8,7 +8,11 @@
 ({ http_event }) => {
   const parsed_body = http_event.parsed_body;
 
-  console.log(http_event);
+  if (parsed_body.ref === `refs/heads/${env.get('submoduleBranch')}`) {
+    console.log(api.run('this.test_update_submodule'));
+  } else {
+    console.log(`Skipped push to ${parsed_body.ref}`);
+  }
 
   return { status_code: 200 };
 }
