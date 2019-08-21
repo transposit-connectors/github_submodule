@@ -1,13 +1,13 @@
 (params) => {
-  let owner = 'transposit';
-  let repo = 'www';
-  let branch = 'test_submodule';
+  let owner = env.get('parentOwner');
+  let repo = env.get('parentRepo');
+  let branch = env.get('parentBranch');
   
-  let submoduleOwner = 'transposit';
-  let submoduleRepo = 'docs';
-  let submoduleBranch = 'master';
+  let submoduleOwner = env.get('submoduleOwner');
+  let submoduleRepo = env.get('submoduleRepo');
+  let submoduleBranch = env.get('submoduleBranch');
   
-  let submodulePath = 'src/docs';
+  let submodulePath = env.get('submodulePath');
     
   let parentSha = api.run('github.get_branch_for_repo', {owner, repo, branch})[0].commit.sha;
   let submoduleSha = api.run('github.get_branch_for_repo', {owner: submoduleOwner, repo: submoduleRepo, branch: submoduleBranch})[0].commit.sha;
