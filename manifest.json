@@ -92,6 +92,10 @@
         "name": "parentRepo",
         "description": "Parent repo name",
         "type": "STRING"
+      }, {
+        "name": "parentBranch",
+        "description": "Branch of the parent repo to update",
+        "type": "STRING"
       }]
     }
   }
