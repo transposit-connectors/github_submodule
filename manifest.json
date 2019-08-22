@@ -86,6 +86,8 @@
         "description": "Path to the git submodule in the parent",
         "type": "STRING"
       }]
-    }
+    },
+    "description": "This is a placeholder",
+    "displayName": "Github Submodule"
   }
 }
