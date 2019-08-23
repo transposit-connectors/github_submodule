@@ -88,6 +88,6 @@
       }]
     },
     "description": "Update a Github repository submodule to the most recent sha as a webhook.",
-    "displayName": "Github Submodule Updater"
+    "displayName": "GitHub Submodule Updater"
   }
 }
