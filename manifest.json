@@ -87,7 +87,7 @@
         "type": "STRING"
       }]
     },
-    "description": "Update a Github repository submodule to the most recent sha as a webhook.",
+    "description": "Update a GitHub repository submodule to the most recent sha as a webhook.",
     "displayName": "GitHub Submodule Updater"
   }
 }
