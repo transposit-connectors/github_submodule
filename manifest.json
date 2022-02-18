@@ -1,91 +1,108 @@
 {
   "v2": {
     "transposit": {
-      "dependencies": [{
-        "name": "transposit/github:v3.*.*",
-        "alias": "github"
-      }],
-      "operations": [{
-        "id": "webhook",
-        "function": {
-          "parameters": [{
-            "name": "http_event",
-            "default": {
-              "text": "{   \"query_parameters\": {     \"api_key\": \"XXX\"   },   \"http_method\": \"POST\",   \"parsed_body\": {     \"channel_name\": \"XXX\",     \"user_id\": \"UXXX\",     \"user_name\": \"iggy\",     \"trigger_id\": \"XXX\",     \"team_domain\": \"my_domain\",     \"team_id\": \"TXXX\",     \"text\": \"\",     \"channel_id\": \"DXXX\",     \"command\": \"/test\",     \"token\": \"XXX\",     \"response_url\": \"https://hooks.slack.com/commands/TXXX/XXX/XXX\"   },   \"body\": \"token=XXX&team_id=TXXX&team_domain=my_domain&channel_id=DXXX&channel_name=XXX&user_id=UXXX&user_name=iggy&command=%2Ftest&text=&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FTXXX%2FXXX%2FXXX&trigger_id=XXX\" }"
-            },
-            "type": "OBJECT"
-          }],
-          "js": "webhook.js"
+      "dependencies": [
+        {
+          "name": "transposit/github:v3.*.*",
+          "alias": "github"
+        }
+      ],
+      "operations": [
+        {
+          "id": "webhook",
+          "function": {
+            "parameters": [
+              {
+                "name": "http_event",
+                "default": {
+                  "text": "{   \"query_parameters\": {     \"api_key\": \"XXX\"   },   \"http_method\": \"POST\",   \"parsed_body\": {     \"channel_name\": \"XXX\",     \"user_id\": \"UXXX\",     \"user_name\": \"iggy\",     \"trigger_id\": \"XXX\",     \"team_domain\": \"my_domain\",     \"team_id\": \"TXXX\",     \"text\": \"\",     \"channel_id\": \"DXXX\",     \"command\": \"/test\",     \"token\": \"XXX\",     \"response_url\": \"https://hooks.slack.com/commands/TXXX/XXX/XXX\"   },   \"body\": \"token=XXX&team_id=TXXX&team_domain=my_domain&channel_id=DXXX&channel_name=XXX&user_id=UXXX&user_name=iggy&command=%2Ftest&text=&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FTXXX%2FXXX%2FXXX&trigger_id=XXX\" }"
+                },
+                "type": "OBJECT"
+              }
+            ],
+            "js": "webhook.js"
+          },
+          "access": {
+            "requireApiKey": true,
+            "webhook": true
+          }
         },
-        "access": {
-          "requireApiKey": true,
-          "webhook": true
+        {
+          "id": "test_update_submodule",
+          "function": {
+            "js": "test_update_submodule.js"
+          }
         }
-      }, {
-        "id": "test_update_submodule",
-        "function": {
-          "js": "test_update_submodule.js"
-        }
-      }],
-      "dataConnections": [{
-        "ref": "slack_identify.raw",
-        "overrides": {
-          "swagger": {
-            "oauthConfig": {
-              "scope": "identity.basic"
-            },
-            "executionLimits": {
+      ],
+      "dataConnections": [
+        {
+          "ref": "slack_identify.raw",
+          "overrides": {
+            "swagger": {
+              "oauthConfig": {
+                "scope": "identity.basic"
+              },
+              "executionLimits": {}
+            }
+          },
+          "title": "Slack",
+          "description": "Used to identify you on Slack"
+        },
+        {
+          "ref": "slack_bot.raw",
+          "overrides": {
+            "swagger": {
+              "oauthConfig": {
+                "scope": "chat:write:bot"
+              },
+              "executionLimits": {}
             }
           }
         },
-        "title": "Slack",
-        "description": "Used to identify you on Slack"
-      }, {
-        "ref": "slack_bot.raw",
-        "overrides": {
-          "swagger": {
-            "oauthConfig": {
-              "scope": "chat:write:bot"
-            },
-            "executionLimits": {
-            }
-          }
+        {
+          "ref": "slack.raw"
         }
-      }, {
-        "ref": "slack.raw"
-      }],
+      ],
       "javascriptAPIVersion": "3",
       "source": "src",
       "userSettingsDisplay": "GENERATED",
-      "appSettings": [{
-        "name": "parentOwner",
-        "description": "Owner of the parent repo",
-        "type": "STRING"
-      }, {
-        "name": "parentRepo",
-        "description": "Parent repo name",
-        "type": "STRING"
-      }, {
-        "name": "parentBranch",
-        "description": "Branch of the parent repo to update",
-        "type": "STRING"
-      }, {
-        "name": "submoduleOwner",
-        "description": "Owner of the submodule repo",
-        "type": "STRING"
-      }, {
-        "name": "submoduleRepo",
-        "description": "Submodule repo name",
-        "type": "STRING"
-      }, {
-        "name": "submoduleBranch",
-        "description": "Branch of the submodule repo to update the parent to",
-        "type": "STRING"
-      }, {
-        "name": "submodulePath",
-        "description": "Path to the git submodule in the parent",
-        "type": "STRING"
-      }]
+      "appSettings": [
+        {
+          "name": "parentOwner",
+          "description": "Owner of the parent repo",
+          "type": "STRING"
+        },
+        {
+          "name": "parentRepo",
+          "description": "Parent repo name",
+          "type": "STRING"
+        },
+        {
+          "name": "parentBranch",
+          "description": "Branch of the parent repo to update",
+          "type": "STRING"
+        },
+        {
+          "name": "submoduleOwner",
+          "description": "Owner of the submodule repo",
+          "type": "STRING"
+        },
+        {
+          "name": "submoduleRepo",
+          "description": "Submodule repo name",
+          "type": "STRING"
+        },
+        {
+          "name": "submoduleBranch",
+          "description": "Branch of the submodule repo to update the parent to",
+          "type": "STRING"
+        },
+        {
+          "name": "submodulePath",
+          "description": "Path to the git submodule in the parent",
+          "type": "STRING"
+        }
+      ]
     },
     "description": "Update a GitHub repository submodule to the most recent sha as a webhook.",
     "displayName": "GitHub Submodule Updater"
